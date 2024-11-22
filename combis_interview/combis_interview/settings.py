@@ -76,8 +76,12 @@ WSGI_APPLICATION = 'combis_interview.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'combisdb',
+        'USER': 'combis_user',
+        'PASSWORD': 'combis',
+        'HOST': 'localhost',
+        'PORT': '5432', 
     }
 }
 
