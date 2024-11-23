@@ -1,6 +1,5 @@
 from django.shortcuts import render
 import requests
-import responses
 from django.http import JsonResponse
 
 # Create your views here.
@@ -8,8 +7,9 @@ from django.http import JsonResponse
 def home(request):
     return render(request, "home.html")
 
-@responses.activate
-def mock_devices_api():
+# Mock API endpoint
+def mock_devices_api(request):
+    # Simulated device data
     devices = [
         {
             "device_id": "abc123",
@@ -26,14 +26,9 @@ def mock_devices_api():
             "location": "Data Center B"
         }
     ]
-    responses.add(
-        responses.GET,
-        "http://mockapi/devices",
-        json=devices,
-        status=200
-    )
+    return JsonResponse(devices, safe=False)
 
-def fetch_devices(request):
+def fetch_store(request):
     external_api_url = "http://mockapi/devices"
     response = requests.get(external_api_url)
     
@@ -41,11 +36,11 @@ def fetch_devices(request):
         external_data = response.json()
         parsed_data = [
             {
-                "device_id": device["id"],
-                "hostname": device["name"],
-                "ip_address": device["ip"],
-                "status": device["state"],
-                "location": device["place"],
+                "device_id": device["device_id"],
+                "hostname": device["hostname"],
+                "ip_address": device["ip_address"],
+                "status": device["status"],
+                "location": device["location"],
             }
             for device in external_data
         ]

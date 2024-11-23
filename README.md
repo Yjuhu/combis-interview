@@ -28,10 +28,4 @@ $ python3 manage.py migrate
 Django rest framework:
 $ sudo pip3 isntall djangorestframework
 
-Mocky Mocks:
-m1: https://run.mocky.io/v3/8241be7d-638b-4700-819e-f49a97395ff0
-m2: https://run.mocky.io/v3/11e0b870-b3fc-490b-9de1-5701c2da90cf
-m3: https://run.mocky.io/v3/0c2665f1-0bf4-4b3e-89a8-43eaa70ca3bb
-m4: 
-
 
