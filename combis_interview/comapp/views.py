@@ -40,7 +40,14 @@ def update_devices_view(request):
 # Stored Devices List Rest API
 class stored_devices_view(APIView):
     def get(self, request):
-        # Fetch from database
-        devices = Device.objects.all()
+        # Fetch devices with optional status filtering
+        status = request.query_params.get('status')  # DRF query params
+
+        if status in ['active', 'inactive']:
+            devices = Device.objects.filter(status=status)
+        else:
+            devices = Device.objects.all()
+
+        # Serialize and return the response
         serializer = DeviceSerializer(devices, many=True)
         return Response(serializer.data)
