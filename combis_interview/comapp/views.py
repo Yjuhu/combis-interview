@@ -1,6 +1,7 @@
 from django.shortcuts import render
 import requests
 from django.http import JsonResponse
+from .models import Device
 
 # Create your views here.
 
@@ -28,22 +29,29 @@ def mock_devices_api(request):
     ]
     return JsonResponse(devices, safe=False)
 
-def fetch_store(request):
-    external_api_url = "http://mockapi/devices"
+def fetch_store():
+    external_api_url = "http://127.0.0.1:8000/api/fetch-devices/"
     response = requests.get(external_api_url)
     
     if response.status_code == 200:
-        external_data = response.json()
-        parsed_data = [
-            {
-                "device_id": device["device_id"],
-                "hostname": device["hostname"],
-                "ip_address": device["ip_address"],
-                "status": device["status"],
-                "location": device["location"],
-            }
-            for device in external_data
-        ]
-        return JsonResponse(parsed_data, safe=False)
+        devices_data = response.json()
+        
+        for device_data in devices_data:
+            # Update or Create
+            obj, created = Device.objects.update_or_create(
+                device_id = device_data["device_id"],
+                defaults = {
+                    "hostname": device_data["hostname"],
+                    "ip_address": device_data["ip_address"],
+                    "status": device_data["status"],
+                    "location": device_data["location"],
+                }
+            )
+            if created:
+                print(f"Created new device: {obj.device_id}")
+            else:
+                print(f"Updated existing device: {obj.device_id}")
+        return {"status": "success", "message": "Devices saved/updated successfully."}
     else:
-        return JsonResponse({'error': 'Failed to fetch devices'}, status=500)
+        print("Error fetching devices")
+        return {"status": "error", "message": "Error fetching devices"}
