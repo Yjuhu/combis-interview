@@ -2,7 +2,7 @@ import requests
 from .models import Device
 
 def fetch_store():
-    external_api_url = "http://127.0.0.1:8000/api/fetch-devices/"
+    external_api_url = "http://127.0.0.1:8000/api/mock-fetch/"
     response = requests.get(external_api_url)
     
     if response.status_code == 200:

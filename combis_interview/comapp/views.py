@@ -1,6 +1,10 @@
 from django.shortcuts import render
 from django.http import JsonResponse
 from . import utils
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from .models import Device
+from .serializers import DeviceSerializer
 
 # Create your views here.
 
@@ -32,3 +36,11 @@ def mock_devices(request):
 def update_devices_view(request):
     result = utils.fetch_store()
     return JsonResponse(result)
+
+# Stored Devices List Rest API
+class stored_devices_view(APIView):
+    def get(self, request):
+        # Fetch from database
+        devices = Device.objects.all()
+        serializer = DeviceSerializer(devices, many=True)
+        return Response(serializer.data)
