@@ -25,4 +25,7 @@ Migrations(maybe future automatization):
 $ python3 manage.py makemigrations (linux)
 $ python3 manage.py migrate
 
+Django rest framework:
+$ sudo pip3 isntall djangorestframework
+
 
