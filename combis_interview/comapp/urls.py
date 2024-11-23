@@ -4,5 +4,5 @@ from .views import DeviceListAPIView
 
 urlpatterns = [
     path("", views.home, name="home"),
-    path('api/devices/', DeviceListAPIView.as_view(), name='device-list'),
+    path('api/fetch-devices/', views.fetch_devices, name='fetch-devices'),
 ]
