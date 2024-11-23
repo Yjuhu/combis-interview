@@ -17,9 +17,9 @@ Database user password: combis
 
 
 http://127.0.0.1:8000/admin/
-Database superuser: supercombis
-Database superuser e-mail: jakov.sarolic.1@gmail.com
-Database superuser password: combis
+admin: supercombis
+admin e-mail: jakov.sarolic.1@gmail.com
+admin password: combis
 
 Migrations(maybe future automatization):
 $ python3 manage.py makemigrations (linux)
