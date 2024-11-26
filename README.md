@@ -1,31 +1,59 @@
-# combis-interview
-Django application that retrieves data from a REST API (either simulated or real) of Cisco DNA Center, processes it, and stores it in a PostgreSQL database.
+# ComApp
+ComApp is a Django application for managing and displaying devices. It includes functionality to fetch device data through a simulated API endpoint, store it in a database, and filter devices by status (active/inactive). This app uses PostgreSQL as its database.
 
-$ pip3 install django
+## Features
+- Fetch device data.
+- Store device data in the database.
+- Retrieve all devices or filter by status.
+- Manage devices via the Django Admin interface.
+- Assisted setup via provided shell scripts.
 
+## Requirements
+- Python 3.8+(how to install it...https://www.python.org/downloads/)
+- PostgreSQL 12+(how to install it...https://www.postgresql.org/download/)
+- pip (Python package manager)
 
-Starting django server(ubuntu): python3 manage.py runserver
+## Setup Instructions
+### 1. Clone the Repository
+Clone the project from GitHub:
+$ git clone https://github.com/Yjuhu/combis-interview
+$ cd combis-interview
 
-All info about starting and setting up postgresql database and server:
-    placeholder(run on startup)
+### 2. Start setup script that will create virtual environment and install all dependencies(located in Django project directory).
+Linux/Mac
+Run the setup.sh script:
 
-Entering shell sql: $ sudo -u postgres psql   # postgres is admin name
+$ chmod +x setup.sh
+$ ./setup.sh
 
-Database name: combisdb
-Database user: combis_user(all permissions granted)
-Database user password: combis
+Windows
+Run the setup.bat script:
+$ setup.bat
 
+### 3. Access the aplication.
+Start the Django development server:
+$ python manage.py runserver
+Open the app in your browser(depending on your local-host)
+http://127.0.0.1:8000/
 
-http://127.0.0.1:8000/admin/
-admin: supercombis
-admin e-mail: jakov.sarolic.1@gmail.com
-admin password: combis
+### 4. Using the App
+- Fetch Mock Devices: Use the "Fetch Mock Devices" button on the homepage to fetch and display mock data.
 
-Migrations(maybe future automatization):
-$ python3 manage.py makemigrations (linux)
-$ python3 manage.py migrate
+- Fetch and Store Devices: Use the "Fetch and Store Devices" button to save the mock data into the database.
 
-Django rest framework:
-$ sudo pip3 isntall djangorestframework
+- Get All Devices: Retrieve all stored devices.
 
+- Filter Devices: Use "Get Active Devices" or "Get Inactive Devices" to filter the data by status.
 
+- Admin Panel: Visit /admin to manually manage devices. Log in using the superuser credentials created during setup.
+
+## Default Credentials for Admin Panel
+Username: admin
+Email: admin@combis.com
+Password: Set during script execution.
+
+Forgotten password?
+Change it with:
+$ python manage.py changepassword admin
+
+This project is licensed under the MIT License.
