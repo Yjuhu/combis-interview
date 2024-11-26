@@ -29,6 +29,7 @@ $ chmod +x setup.sh
 
 $ ./setup.sh
 
+
 Windows
 Run the setup.bat script:
 
@@ -38,6 +39,7 @@ $ setup.bat
 Start the Django development server:
 
 $ python manage.py runserver
+
 
 Open the app in your browser(depending on your local-host)
 
@@ -61,9 +63,12 @@ Email: admin@combis.com
 
 Password: Set during script execution.
 
+
 Forgotten password?
 Change it with:
 
 $ python manage.py changepassword admin
+
+
 
 This project is licensed under the MIT License.
