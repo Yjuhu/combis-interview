@@ -13,7 +13,6 @@ def home(request):
 
 # Mock API endpoint
 def mock_devices(request):
-    # Simulated device data
     devices = [
         {
             "device_id": "abc123",
@@ -48,6 +47,6 @@ class stored_devices_view(APIView):
         else:
             devices = Device.objects.all()
 
-        # Serialize and return the response
+        # Serialize
         serializer = DeviceSerializer(devices, many=True)
         return Response(serializer.data)
