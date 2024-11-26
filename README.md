@@ -16,7 +16,9 @@ ComApp is a Django application for managing and displaying devices. It includes 
 ## Setup Instructions
 ### 1. Clone the Repository
 Clone the project from GitHub:
+
 $ git clone https://github.com/Yjuhu/combis-interview
+
 $ cd combis-interview
 
 ### 2. Start setup script that will create virtual environment and install all dependencies(located in Django project directory).
@@ -24,16 +26,21 @@ Linux/Mac
 Run the setup.sh script:
 
 $ chmod +x setup.sh
+
 $ ./setup.sh
 
 Windows
 Run the setup.bat script:
+
 $ setup.bat
 
 ### 3. Access the aplication.
 Start the Django development server:
+
 $ python manage.py runserver
+
 Open the app in your browser(depending on your local-host)
+
 http://127.0.0.1:8000/
 
 ### 4. Using the App
@@ -49,11 +56,14 @@ http://127.0.0.1:8000/
 
 ## Default Credentials for Admin Panel
 Username: admin
+
 Email: admin@combis.com
+
 Password: Set during script execution.
 
 Forgotten password?
 Change it with:
+
 $ python manage.py changepassword admin
 
 This project is licensed under the MIT License.
