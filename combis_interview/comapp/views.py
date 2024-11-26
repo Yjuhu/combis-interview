@@ -19,7 +19,7 @@ def mock_devices(request):
             "device_id": "abc123",
             "hostname": "Switch01",
             "ip_address": "192.168.1.1",
-            "status": "active",
+            "status": "inactive",
             "location": "Data Center A"
         },
         {
