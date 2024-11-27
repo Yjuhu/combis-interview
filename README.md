@@ -10,9 +10,10 @@ ComApp is a Django application for managing and displaying devices. It includes 
 
 ## Requirements
 - Python 3.8+(how to install it...https://www.python.org/downloads/)
-- PostgreSQL 12+(how to install it...https://www.postgresql.org/download/)
-- psql command added to the PATH(Windows)
 - pip (Python package manager)
+- PostgreSQL 12+(how to install it...https://www.postgresql.org/download/)
+- PostgreSQL up and running(Windows) - You will need server login credentials.
+- psql command added to the PATH(Windows)
 
 ## Setup Instructions
 ### 1. Clone the Repository
@@ -34,8 +35,10 @@ Run the setup.bat script:
 Start the Django development server:
 - $ python manage.py runserver
 
-Open the app in your browser(depending on your local-host)
+Open the app in your browser
 - http://127.0.0.1:8000/
+Open the admin panel in your browser
+- http://127.0.0.1:8000/admin/
 
 ### 4. Using the App
 - Fetch Devices: Use the "Fetch Devices" button on the homepage to fetch and display data.
@@ -48,7 +51,7 @@ Open the app in your browser(depending on your local-host)
 
 - Admin Panel: Visit /admin to manually manage devices. Log in using the superuser credentials created during setup.
 
-- Changing mock device data for testing purposes in view.py file of comapp directory. Change the data by finding mock_devices method and changing values. 
+- Changing mock device data for testing purposes in view.py file of comapp directory. Change the data by finding mock_devices method and change values to your needs. 
 
 ## Default Credentials for Admin Panel
 - Username: admin
