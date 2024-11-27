@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Device Manager</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  {% load static %}
+</head>
+<body class="bg-light">
+  <div class="container mt-5">
+    <h1 class="text-center mb-4">Device Manager</h1>
+
+    <!-- Buttons Section -->
+    <div class="d-flex justify-content-center mb-4">
+      <button class="btn btn-primary mx-2" onclick="fetchMockDevices()">Fetch Devices</button>
+      <button class="btn btn-success mx-2" onclick="updateDevices()">Fetch and Store Devices</button>
+      <button class="btn btn-info mx-2" onclick="getAllDevices()">Get All Devices</button>
+      <button class="btn btn-warning mx-2" onclick="getFilteredDevices('active')">Get Active Devices</button>
+      <button class="btn btn-danger mx-2" onclick="getFilteredDevices('inactive')">Get Inactive Devices</button>
+    </div>
+
+    <!-- Output Section -->
+    <div class="card">
+      <div class="card-body">
+        <h2 class="card-title">Device Data</h2>
+        <div class="table-responsive">
+          <table class="table table-bordered table-striped mt-3">
+            <thead class="table-dark">
+              <tr>
+                <th>Device ID</th>
+                <th>Hostname</th>
+                <th>IP Address</th>
+                <th>Status</th>
+                <th>Location</th>
+              </tr>
+            </thead>
+            <tbody id="deviceTableBody">
+              <!-- Data will be dynamically inserted here -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Custom JavaScript -->
+  <script src="{% static 'script.js' %}" defer></script>
+</body>
+</html>
