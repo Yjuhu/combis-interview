@@ -32,16 +32,16 @@ sed -i "s/'PORT': '.*'/'PORT': '5432'/g" combis_interview/settings.py
 
 # Step 4: Run migrations and collect static files
 echo "Running migrations..."
-python manage.py makemigrations
-python manage.py migrate
+python3 manage.py makemigrations
+python3 manage.py migrate
 
 echo "Collecting static files..."
-python manage.py collectstatic --noinput
+python3 manage.py collectstatic --noinput
 
 # Step 5: Create Django superuser
 echo "Creating Django superuser..."
-python manage.py createsuperuser --email admin@combis.com --username admin
+python3 manage.py createsuperuser --email admin@combis.com --username admin
 
 # Step 6: Run the development server
 echo "Setup complete! Starting the server..."
-python manage.py runserver
+python3 manage.py runserver
