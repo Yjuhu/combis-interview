@@ -16,39 +16,30 @@ ComApp is a Django application for managing and displaying devices. It includes 
 ## Setup Instructions
 ### 1. Clone the Repository
 Clone the project from GitHub:
-
-$ git clone https://github.com/Yjuhu/combis-interview
-
-$ cd combis-interview
+- $ git clone https://github.com/Yjuhu/combis-interview
+- $ cd combis-interview
 
 ### 2. Start setup script that will create virtual environment and install all dependencies(located in Django project directory).
-Linux/Mac
+#### Linux/Mac
 Run the setup.sh script:
+- $ chmod +x setup.sh
+- $ ./setup.sh
 
-$ chmod +x setup.sh
-
-$ ./setup.sh
-
-
-Windows
+#### Windows
 Run the setup.bat script:
-
-$ setup.bat
+- $ setup.bat
 
 ### 3. Access the aplication.
 Start the Django development server:
-
-$ python manage.py runserver
-
+- $ python manage.py runserver
 
 Open the app in your browser(depending on your local-host)
-
-http://127.0.0.1:8000/
+- http://127.0.0.1:8000/
 
 ### 4. Using the App
-- Fetch Mock Devices: Use the "Fetch Mock Devices" button on the homepage to fetch and display mock data.
+- Fetch Devices: Use the "Fetch Devices" button on the homepage to fetch and display data.
 
-- Fetch and Store Devices: Use the "Fetch and Store Devices" button to save the mock data into the database.
+- Fetch and Store Devices: Use the "Fetch and Store Devices" button to save the data into the database.
 
 - Get All Devices: Retrieve all stored devices.
 
@@ -56,19 +47,20 @@ http://127.0.0.1:8000/
 
 - Admin Panel: Visit /admin to manually manage devices. Log in using the superuser credentials created during setup.
 
+- Changing mock device data for testing purposes in view.py file of comapp directory. Change the data by finding mock_devices method and changing values. 
+
 ## Default Credentials for Admin Panel
-Username: admin
+- Username: admin
+- Email: admin@combis.com
+- Password: Set during script execution.
 
-Email: admin@combis.com
-
-Password: Set during script execution.
-
-
-Forgotten password?
+#### Forgotten password?
 Change it with:
+- $ python manage.py changepassword admin
 
-$ python manage.py changepassword admin
+Database credentials:
+- Username: comapp_user
+- Password: securepassword
 
+#### This project is licensed under the MIT License.
 
-
-This project is licensed under the MIT License.
