@@ -32,7 +32,7 @@ Run the setup.bat script:
 - $ setup.bat
 
 ### 3. Access the aplication.
-Start the Django development server:
+Start the Django development server(it will automatically start if you run the script above):
 - $ python manage.py runserver
 
 Open the app in your browser
@@ -49,7 +49,7 @@ Open the admin panel in your browser
 
 - Filter Devices: Use "Get Active Devices" or "Get Inactive Devices" to filter the data by status.
 
-- Admin Panel: Visit /admin to manually manage devices. Log in using the superuser credentials created during setup.
+- Admin Panel: Visit /admin to manually manage devices. Log in using the admin(superuser) credentials created during setup.
 
 - Changing mock device data for testing purposes in view.py file of comapp directory. Change the data by finding mock_devices method and change values to your needs. 
 
@@ -62,9 +62,12 @@ Open the admin panel in your browser
 Change it with:
 - $ python manage.py changepassword admin
 
-Database credentials:
+Database user/role credentials:
 - Username: comapp_user
 - Password: securepassword
+
+Server credentials:
+- Defined when creating PostgreSQL server(Recommended server manager... https://www.pgadmin.org/download/)
 
 #### This project is licensed under the MIT License.
 
