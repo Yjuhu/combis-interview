@@ -22,14 +22,6 @@ sudo -u postgres psql -c "CREATE DATABASE $DB_NAME;"
 sudo -u postgres psql -c "CREATE USER $DB_USER WITH PASSWORD '$DB_PASSWORD';"
 sudo -u postgres psql -c "GRANT ALL PRIVILEGES ON DATABASE $DB_NAME TO $DB_USER;"
 
-# Update database settings in settings.py
-echo "Configuring database in settings.py..."
-sed -i "s/'NAME': '.*'/'NAME': '$DB_NAME'/g" combis_interview/settings.py
-sed -i "s/'USER': '.*'/'USER': '$DB_USER'/g" combis_interview/settings.py
-sed -i "s/'PASSWORD': '.*'/'PASSWORD': '$DB_PASSWORD'/g" combis_interview/settings.py
-sed -i "s/'HOST': '.*'/'HOST': 'localhost'/g" combis_interview/settings.py
-sed -i "s/'PORT': '.*'/'PORT': '5432'/g" combis_interview/settings.py
-
 # Step 4: Run migrations and collect static files
 echo "Running migrations..."
 python3 manage.py makemigrations

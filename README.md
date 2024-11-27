@@ -11,6 +11,7 @@ ComApp is a Django application for managing and displaying devices. It includes 
 ## Requirements
 - Python 3.8+(how to install it...https://www.python.org/downloads/)
 - PostgreSQL 12+(how to install it...https://www.postgresql.org/download/)
+- psql command added to the PATH(Windows)
 - pip (Python package manager)
 
 ## Setup Instructions
